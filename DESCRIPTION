@@ -1,0 +1,22 @@
+Package: pR
+Type: Package
+Title: Support functions for the analysis of pupillary response data
+Version: 0.01
+Date: 2013-07-07
+Author: Hedderik van Rijn, Jacolien van Rij
+Maintainer: Hedderik van Rijn <hedderik@van-rijn.org>
+Description: A set of functions that can assist by the analysis of pupillary
+    response data. Functionality includes reading in of data files (focused on
+    the output of SR Research's Eyelink line of eye-trackers), blink detection,
+    filtering & smoothing, and some analysis code.
+License: LGPL
+Depends: data.table, zoo
+Collate:
+    'blinkstatistics.R'
+    'detectblinks.R'
+    'downsample.R'
+    'expandblinks.R'
+    'interpolateblinks.R'
+    'normalize.R'
+    'plotblinkdiagnostics.R'
+    'pr-package.R'
