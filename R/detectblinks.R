@@ -23,10 +23,11 @@
 ##' 
 ##' @author Hedderik van Rijn
 ##' @export detectblinks
-##' @import data.table
+##' @import data.table, hvR
 ##' @name detectblinks
 
 require(data.table)
+require(hvR)
 
 detectblinks <- function(pddt,minDilation=500,maxDeltaDilation=5) {
     
@@ -35,7 +36,7 @@ detectblinks <- function(pddt,minDilation=500,maxDeltaDilation=5) {
     
     ## However, some participants seem to "sometimes" partily close their eyes, resulting in "sudden drops"
     ## in dilatation. Therefore, add a velocity based measure as well.
-    pddt[,DilP := shift(Dil,-1),by=Trial]
+    pddt[,DilP := hvR::shift(Dil,-1),by=Trial]
     pddt[,DilDiff := abs(DilP - Dil)]
     ## Remove previous dilation column, is typically not needed
     pddt$DilP <- NULL
